@@ -2,7 +2,7 @@ import json
 import csv
 
 # Open the JSON file and load its contents into a Python object
-with open('instance-info.json') as f:
+with open('files/instance-info.json') as f:
     data = json.load(f)
 
 # Access the data
