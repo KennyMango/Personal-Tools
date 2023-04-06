@@ -11,7 +11,7 @@ instance_info = data['InstanceInformationList']
 header = ['Instance ID', 'Computer Name', 'PingStatus', 'Version']
 
 # Open the CSV file in write mode and specify newline='' to avoid extra blank rows
-with open('my_file.csv', mode='w', newline='') as file:
+with open('files/my_file.csv', mode='w', newline='') as file:
 
     # Create a CSV writer object
     writer = csv.writer(file)
