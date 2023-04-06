@@ -2,10 +2,11 @@ import openpyxl, datetime, pyperclip
 from openpyxl import Workbook, load_workbook
 from datetime import timedelta, date
 
-filepath = 'C:/Users/ksitu/Documents/Timesheet/'
-filename = '.OTINF Kenneth Situ May 21, 2022.xlsx'
-wb = load_workbook(filepath + filename)
+filepath = 'files/'
+filename = 'Timesheet.xlsx'
+wb = openpyxl.load_workbook(filepath + filename)
 ws = wb.active
+ws.protection.sheet = False
 
 def number_to_string_month(string):
     m = {
@@ -33,8 +34,9 @@ def SetWorkWeek(LastEndingDate):
     intdate2 = [int(item) for item in date2]
     date3 = date(intdate2[0],intdate2[1],intdate2[2])
     endDate = date3 + timedelta(days=1)
-    datetime = str(endDate) + ' 00:00:00'
-    ws['C25'].value = datetime
+    # datetime = str(endDate) + ' 00:00:00'
+    datetime = str(endDate)
+    ws['C30'].value = datetime
     return date3
 
 
@@ -103,7 +105,7 @@ def Save_File_Date(StartingPeriod):
 if __name__ == '__main__':
     LastPayPeriod = input("Enter last Pay Period End Date (yyyy-mm-dd): ")
     StartingPeriod = SetWorkWeek(LastPayPeriod)
-    ClearOverTime(15)
+    # ClearOverTime(15)
     i = 0
     while True:
         checkOT = input('Input OT? yes or no: ')
